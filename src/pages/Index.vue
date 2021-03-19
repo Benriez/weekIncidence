@@ -45,15 +45,16 @@
         </div>
       </div>
 
-      <div class="col text-center">
+      <!-- <div class="col text-center">
         <img :src="`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`">
-      </div>
+      </div> -->
+
     </template>
 
     <template v-else>
       <div class="col column text-center text-white">
         <div class="col text-h2 text-weight-thin">
-          Quasar <br> Weather
+          What's my <br> Incidence
         </div>
           <q-btn
             @click="getLocation"
@@ -182,9 +183,9 @@ export default {
   .degree
     top: -44px;
 
-  .skyline
-    flex: 0 0 150px
-    background: url(../assets/skyline.png)
-    background-size: contain
-    background-position: center bottom
+  // .skyline
+  //   flex: 0 0 150px
+  //   background: url(../assets/skyline.png)
+  //   background-size: contain
+  //   background-position: center bottom
 </style>
