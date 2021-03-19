@@ -66,7 +66,7 @@
       </div>
     </template>
 
-    <div class="wrapper">
+    <!-- <div class="wrapper">
       <div class="box">
         <div></div>
         <div></div>
@@ -79,7 +79,7 @@
         <div></div>
         <div></div>
       </div>
-    </div>
+    </div> -->
 
   </q-page>
 </template>
@@ -146,7 +146,7 @@ export default {
       var ags = '';
       this.$axios.get('ags.txt').then(response=>{
         for (let index = 0; index < 5; index++) {
-          ags = ags + response.data.charAt(response.data.indexOf(ort)-27 + index)    
+          ags = ags + response.data.charAt(response.data.indexOf(ort)-26 + index)    
         }
         this.gemeindezahl = ags
         console.log('axios get gemeindezahl::', this.gemeindezahl)
