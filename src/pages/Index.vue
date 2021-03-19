@@ -66,7 +66,7 @@
       </div>
     </template>
 
-    <!-- <div class="wrapper">
+    <div class="wrapper">
       <div class="box">
         <div></div>
         <div></div>
@@ -79,7 +79,7 @@
         <div></div>
         <div></div>
       </div>
-    </div> -->
+    </div>
 
   </q-page>
 </template>
