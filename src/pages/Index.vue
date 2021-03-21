@@ -40,9 +40,21 @@
         <div class="text-h6 text-weight-light">
           7 Tage Inzidenz
         </div>
-        <div class="text-h1 text-weight-thin q-my-lg relative-position">
-          <span>{{ Math.round(coronaData.data[gemeindezahl].weekIncidence)}}</span> 
-        </div>
+        <template v-if="coronaData.data[gemeindezahl].weekIncidence < 50">
+          <div class="text-h1 text-weight-light q-my-lg relative-position" style="color: green">
+            <span>{{ Math.round(coronaData.data[gemeindezahl].weekIncidence)}}</span> 
+          </div>
+        </template>
+        <template v-else-if="coronaData.data[gemeindezahl].weekIncidence > 50 && coronaData.data[gemeindezahl].weekIncidence < 100">
+          <div class="text-h1 text-weight-light q-my-lg relative-position" style="color: orange">
+            <span>{{ Math.round(coronaData.data[gemeindezahl].weekIncidence)}}</span> 
+          </div>
+        </template>
+        <template v-else>
+          <div class="text-h1 text-weight-light q-my-lg relative-position" style="color: red">
+            <span>{{ Math.round(coronaData.data[gemeindezahl].weekIncidence)}}</span> 
+          </div>
+        </template>
       </div>
 
       <!-- <div class="col text-center">
