@@ -1,5 +1,5 @@
 # Demo
-https://benriez.github.io/weekIncidence_spa/
+https://benriez.github.io/weekIncidence-app/#/
 
 # Quasar App (quasar-weahter-app)
 
