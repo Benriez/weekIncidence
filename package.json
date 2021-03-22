@@ -2,7 +2,7 @@
   "name": "quasar-weahter-app",
   "version": "0.0.1",
   "description": "A Quasar Framework app",
-  "productName": "Quasar App",
+  "productName": "What's my Incidence",
   "author": "Benriez <stberiez@stud.h-da.de>",
   "private": true,
   "scripts": {
