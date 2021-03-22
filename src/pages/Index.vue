@@ -103,6 +103,7 @@
         <div></div>
       </div>
     </div>
+    <!-- <a href="https://www.checkdomain.de/unternehmen/garantie/ssl/popup/" onclick="window.open(this.href + '?host=' + window.location.host,'','height=600,width=560,scrollbars=yes'); return false;"><img src="https://www.checkdomain.de/assets/bundles/web/app/widget/seal/img/ssl_certificate/de/150x150.png?20210322-140953" alt="SSL-Zertifikat" /></a> -->
 
   </q-page>
 </template>
@@ -182,6 +183,10 @@ export default {
         console.log('c-data', this.coronaData)
       });
     
+    },
+    closeInfo(){
+      var x = document.getElementById("Info");
+      x.style.display = "none"
     }
   }
 }
