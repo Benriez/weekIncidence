@@ -158,13 +158,11 @@ export default {
       this.$q.loading.show()
       this.$axios(`${this.apiURL}?q=${this.search}&appid=${this.apiKey}&units=metric`).then(response=>{
         this.weatherData = response.data
-        // this.getAGS()
         this.get_ags()
       })
       this.$q.loading.hide()
     },
     get_ags(){
-      console.log('what up')
       var ort = this.weatherData.name
       var ags = '';
       this.$axios.get('ags.txt').then(response=>{
@@ -172,30 +170,10 @@ export default {
           ags = ags + response.data.charAt(response.data.indexOf(ort)-26 + index)    
         }
         this.gemeindezahl = ags
-        console.log('axios get gemeindezahl::', this.gemeindezahl)
-
         this.getCoronaStats()
       })
 
     }, 
-    getAGS(){
-      // var ort = this.weatherData.name
-      // var ags = '';
-      
-      // jQuery.get('ags.txt',function(data){
-      //   for (let index = 0; index < 5; index++) {
-      //     ags = ags + data.charAt(data.indexOf(ort)-27 + index)    
-      //   }
-      //   this.gemeindezahl = ags
-      //   console.log('jquery get gemeindezahl::', this.gemeindezahl)
-        
-      //   jQuery.get(`https://api.corona-zahlen.org/districts/`+this.gemeindezahl).then(response=>{
-      //     this.coronaData = response.data
-      //     console.log('c-data', this.coronaData)
-      //   });
-
-      // });
-    },
     getCoronaStats(){
       console.log('get c-data', this.gemeindezahl)
 
