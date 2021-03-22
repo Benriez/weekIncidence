@@ -56,7 +56,12 @@
           </div>
         </template>
       </div>
+      <div class="meta-data text-center">
+        <span>Source: {{ coronaData.meta.source }}</span>
+        <span>Last Update: {{ coronaData.meta.lastUpdate.split(".")[0] }}</span>
+        <span>Data provided by: {{ coronaData.meta.contact.split("(")[0]  }}</span>
 
+      </div>
       <!-- <div class="col text-center">
         <img :src="`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`">
       </div> -->
@@ -237,7 +242,12 @@ export default {
     z-index: -1
   
   .textData
-    margin-top: -12rem
+    margin-top: -9rem
+  
+  .meta-data
+    display: contents
+    font-size: 11px
+    color: #cfcfcf
   
   .box div
     position: absolute
