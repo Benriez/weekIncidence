@@ -31,7 +31,7 @@
 
     <template v-if="weatherData">
       <div class="col result text-white text-center textData">
-        <div class="text-h4">
+        <div class="text-h4 weatherData-name">
           {{weatherData.name}}
         </div>
         <div class="text-h6 text-weight-light">
@@ -59,7 +59,7 @@
       <div class="meta-data text-center">
         <span>Source: {{ coronaData.meta.source }}</span>
         <span>Last Update: {{ coronaData.meta.lastUpdate.split(".")[0] }}</span>
-        <span>Data provided by: {{ coronaData.meta.contact.split("(")[0]  }}</span>
+        <span class="meta-data-div">Data provided by: {{ coronaData.meta.contact.split("(")[0]  }}</span>
 
       </div>
       <!-- <div class="col text-center">
@@ -242,19 +242,25 @@ export default {
     z-index: -1
   
   .textData
-    margin-top: -9rem
+    margin-top: -8rem
   
   .meta-data
     display: contents
     font-size: 11px
     color: #cfcfcf
   
+  .meta-data-div
+    padding-bottom: 8px
+  
+  .weatherData-name
+    margin-bottom: 8px
+  
   .box div
     position: absolute
     width: 60px
     height: 60px
     background-color: transparent
-    border: 6px solid #efefef
+    border: 4px solid #efefef
 
   .box div:nth-child(1)
     top: 12%
@@ -262,7 +268,7 @@ export default {
     animation: animate 10s linear infinite
   
   .box div:nth-child(2)
-    top: 85%
+    top: 90%
     left: 50%
     animation: animate 7s linear infinite
   
