@@ -60,7 +60,11 @@
         <span>Source: {{ coronaData.meta.source }}</span>
         <span>Last Update: {{ coronaData.meta.lastUpdate.split(".")[0] }}</span>
         <span class="meta-data-div">Data provided by: {{ coronaData.meta.contact.split("(")[0]  }}</span>
-
+        <span class="donation">
+          <img class="buymecoffee-img" src="buymeacoffee.svg" height="23px" />
+          <a class="buymecoffee"  href="https://www.paypal.com/donate?hosted_button_id=VUDEMUZAVN3Q2"> Buy me a coffee</a>
+        </span> 
+        
       </div>
       <!-- <div class="col text-center">
         <img :src="`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`">
@@ -75,7 +79,7 @@
         </div>
           <q-btn
             @click="getLocation"
-            class="col geLocationBtn"
+            class="col getLocationBtn"
             flat>
             <q-icon left size="3em" name="my_location" />
             <div>Find my location</div>
@@ -225,14 +229,25 @@ export default {
     margin: 0
     padding: 0
 
-  .geLocationBtn
+  .getLocationBtn
     z-index: 10
   
   .topSearch
     z-index: 11
   
   .intro
-    margin-top: -5rem
+    margin-top: -6rem
+
+  .buymecoffee
+    vertical-align: super
+    color: #cfcfcf
+    text-decoration: none
+  
+  .buymecoffee-img
+    margin-right: 5px
+  
+  .donation
+    margin-bottom: 8px
 
   .wrapper
     position: absolute
@@ -242,7 +257,7 @@ export default {
     z-index: -1
   
   .textData
-    margin-top: -8rem
+    margin-top: 0rem
   
   .meta-data
     display: contents
@@ -250,7 +265,7 @@ export default {
     color: #cfcfcf
   
   .meta-data-div
-    padding-bottom: 8px
+    padding-bottom: 3rem
   
   .weatherData-name
     margin-bottom: 8px
