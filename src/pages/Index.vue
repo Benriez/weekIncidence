@@ -30,8 +30,8 @@
     
 
     <template v-if="weatherData">
-      <div class="col text-white text-center textData">
-        <div class="text-h4 text-weight-light">
+      <div class="col result text-white text-center textData">
+        <div class="text-h4">
           {{weatherData.name}}
         </div>
         <div class="text-h6 text-weight-light">
@@ -235,7 +235,7 @@ export default {
     z-index: -1
   
   .textData
-    margin-top: -5rem
+    margin-top: -12rem
   
   .box div
     position: absolute
