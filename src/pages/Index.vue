@@ -149,9 +149,11 @@ export default {
       this.$axios(`${this.apiURL}?lat=${this.lat}&lon=${this.lon}&appid=${this.apiKey}&units=metric`).then(response=>{
         this.weatherData = response.data
         this.get_ags()
-        this.$q.loading.hide()
+        this.closeCounter()
         // https://www.dcat-ap.de/def/politicalGeocoding/municipalityKey/20210131.html
+        
       })
+      this.$q.loading.hide()
     },
     getWeatherbySearch(){
       this.$q.loading.show()
@@ -159,6 +161,7 @@ export default {
         this.weatherData = response.data
         this.get_ags()
       })
+      this.closeCounter()
       this.$q.loading.hide()
     },
     get_ags(){
@@ -184,6 +187,10 @@ export default {
     },
     closeInfo(){
       var x = document.getElementById("Info");
+      x.style.display = "none"
+    },
+    closeCounter(){
+      var x = document.getElementsByClassName("counterimg")[0]
       x.style.display = "none"
     }
   }
@@ -259,6 +266,7 @@ export default {
     transform: translate(-50%, -7.5rem)
     z-index: 100
     opacity: 0.8
+    display: block
   
   .box div
     position: absolute
