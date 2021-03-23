@@ -146,7 +146,7 @@ export default {
     },
     getWeatherByCoords(){
       this.$q.loading.show()
-      // this.closeCounter()
+      this.closeCounter()
       this.$axios(`${this.apiURL}?lat=${this.lat}&lon=${this.lon}&appid=${this.apiKey}&units=metric`).then(response=>{
         this.weatherData = response.data
         this.get_ags()
@@ -157,7 +157,7 @@ export default {
     },
     getWeatherbySearch(){
       this.$q.loading.show()
-      // this.closeCounter()
+      this.closeCounter()
       this.$axios(`${this.apiURL}?q=${this.search}&appid=${this.apiKey}&units=metric`).then(response=>{
         this.weatherData = response.data
         console.log('weathermap', this.weatherData)
