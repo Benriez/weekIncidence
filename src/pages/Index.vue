@@ -254,9 +254,9 @@ export default {
 
   .counterimg
     position: absolute
-    top: 10px
+    top: 50%
     left: 50%
-    transform: translateX(-50%)
+    transform: translate(-50%, -7.5rem)
     z-index: 100
     opacity: 0.8
   
