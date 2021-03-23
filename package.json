@@ -1,7 +1,7 @@
 {
   "name": "quasar-weahter-app",
   "version": "0.0.1",
-  "description": "A Quasar Framework app",
+  "description": "Get your local incidence",
   "productName": "What's my Incidence",
   "author": "Benriez <stberiez@stud.h-da.de>",
   "private": true,
