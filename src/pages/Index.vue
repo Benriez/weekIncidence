@@ -161,7 +161,7 @@ export default {
       this.$axios(`${this.apiURL}?q=${this.search}&appid=${this.apiKey}&units=metric`).then(response=>{
         this.weatherData = response.data
         console.log('weathermap', this.weatherData)
-        if (this.weatherData.name.includes("Regierungsbezirk")){ //Direktionsbezirk
+        if (this.weatherData.name.includes("Regierungsbezirk")){ 
           this.weatherData.name = this.weatherData.name.slice(17)
         } else if (this.weatherData.name == 'Wurzburg') {
           this.weatherData.name = 'Würzburg'
@@ -169,6 +169,10 @@ export default {
           this.weatherData.name = 'München'
         } else if (this.weatherData.name == 'Nuremberg') {
           this.weatherData.name = 'Nürnberg'
+        } else if (this.weatherData.name == 'Hanover') {
+          this.weatherData.name = 'Hannover'
+        } else if (this.weatherData.name.includes("Direktionsbezirk")) {
+          this.weatherData.name = this.weatherData.name.slice(17)
         }
         this.get_ags()
       })

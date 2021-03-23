@@ -1478,6 +1478,12 @@
         <td>Wangelau</td>
         <td></td>
       </tr>
+      <tr id="02000000">
+        <td><a href="/def/politicalGeocoding/municipalityKey/20210131#02000000">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/02000000</a></td>
+        <td>02000000</td>
+        <td>Hamburg, Freie und Hansestadt</td>
+        <td></td>
+      </tr>
       <tr id="01053129">
         <td><a href="/def/politicalGeocoding/municipalityKey/20210131#01053129">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/01053129</a></td>
         <td>01053129</td>
@@ -6656,12 +6662,6 @@
         <td>Wesenberg</td>
         <td></td>
       </tr>
-      <tr id="02000000">
-        <td><a href="/def/politicalGeocoding/municipalityKey/20210131#02000000">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/02000000</a></td>
-        <td>02000000</td>
-        <td>Hamburg, Freie und Hansestadt</td>
-        <td></td>
-      </tr>
       <tr id="02101101">
         <td><a href="/def/politicalGeocoding/municipalityKey/20210131#02101101">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/02101101</a></td>
         <td>02101101</td>
@@ -8430,6 +8430,12 @@
         <td><a href="/def/politicalGeocoding/municipalityKey/20210131#03158012">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/03158012</a></td>
         <td>03158012</td>
         <td>Erkerode</td>
+        <td></td>
+      </tr>
+      <tr id="05113000">
+        <td><a href="/def/politicalGeocoding/municipalityKey/20210131#05113000">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/05113000</a></td>
+        <td>05113000</td>
+        <td>Essen, Stadt</td>
         <td></td>
       </tr>
       <tr id="03158013">
@@ -13916,6 +13922,12 @@
         <td>Blockland</td>
         <td>Stadt-/Ortsteil bzw. Stadtbezirk</td>
       </tr>
+      <tr id="09362000">
+        <td><a href="/def/politicalGeocoding/municipalityKey/20210131#09362000">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/09362000</a></td>
+        <td>09362000</td>
+        <td>Regensburg</td>
+        <td></td>
+      </tr>
       <tr id="04011421">
         <td><a href="/def/politicalGeocoding/municipalityKey/20210131#04011421">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/04011421</a></td>
         <td>04011421</td>
@@ -14118,12 +14130,6 @@
         <td><a href="/def/politicalGeocoding/municipalityKey/20210131#05112000">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/05112000</a></td>
         <td>05112000</td>
         <td>Duisburg, Stadt</td>
-        <td></td>
-      </tr>
-      <tr id="05113000">
-        <td><a href="/def/politicalGeocoding/municipalityKey/20210131#05113000">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/05113000</a></td>
-        <td>05113000</td>
-        <td>Essen, Stadt</td>
         <td></td>
       </tr>
       <tr id="05114000">
@@ -16812,6 +16818,12 @@
         <td><a href="/def/politicalGeocoding/municipalityKey/20210131#06433005">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/06433005</a></td>
         <td>06433005</td>
         <td>Ginsheim-Gustavsburg, Stadt</td>
+        <td></td>
+      </tr>
+      <tr id="16052000">
+        <td><a href="/def/politicalGeocoding/municipalityKey/20210131#16052000">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/16052000</a></td>
+        <td>16052000</td>
+        <td>Gera, Stadt</td>
         <td></td>
       </tr>
       <tr id="06433006">
@@ -20214,6 +20226,12 @@
         <td><a href="/def/politicalGeocoding/municipalityKey/20210131#07133002">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/07133002</a></td>
         <td>07133002</td>
         <td>Allenfeld</td>
+        <td></td>
+      </tr>
+      <tr id="09461000">
+        <td><a href="/def/politicalGeocoding/municipalityKey/20210131#09461000">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/09461000</a></td>
+        <td>09461000</td>
+        <td>Bamberg</td>
         <td></td>
       </tr>
       <tr id="07133003">
@@ -27774,6 +27792,12 @@
         <td><a href="/def/politicalGeocoding/municipalityKey/20210131#07233003">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/07233003</a></td>
         <td>07233003</td>
         <td>Beinhausen</td>
+        <td></td>
+      </tr>
+      <tr id="11001000">
+        <td><a href="/def/politicalGeocoding/municipalityKey/20210131#11000000">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/11000000</a></td>
+        <td>1100100 </td>
+        <td>Berlin, Stadt</td>
         <td></td>
       </tr>
       <tr id="07233004">
@@ -44228,12 +44252,6 @@
         <td>Amberg</td>
         <td></td>
       </tr>
-      <tr id="09362000">
-        <td><a href="/def/politicalGeocoding/municipalityKey/20210131#09362000">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/09362000</a></td>
-        <td>09362000</td>
-        <td>Regensburg</td>
-        <td></td>
-      </tr>
       <tr id="09363000">
         <td><a href="/def/politicalGeocoding/municipalityKey/20210131#09363000">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/09363000</a></td>
         <td>09363000</td>
@@ -45618,12 +45636,6 @@
         <td><a href="/def/politicalGeocoding/municipalityKey/20210131#09377159">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/09377159</a></td>
         <td>09377159</td>
         <td>Wiesau, M</td>
-        <td></td>
-      </tr>
-      <tr id="09461000">
-        <td><a href="/def/politicalGeocoding/municipalityKey/20210131#09461000">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/09461000</a></td>
-        <td>09461000</td>
-        <td>Bamberg</td>
         <td></td>
       </tr>
       <tr id="09462000">
@@ -53166,12 +53178,6 @@
         <td><a href="/def/politicalGeocoding/municipalityKey/20210131#10046118">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/10046118</a></td>
         <td>10046118</td>
         <td>Tholey</td>
-        <td></td>
-      </tr>
-      <tr id="11000000">
-        <td><a href="/def/politicalGeocoding/municipalityKey/20210131#11000000">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/11000000</a></td>
-        <td>11000000</td>
-        <td>Berlin, Stadt</td>
         <td></td>
       </tr>
       <tr id="11001001">
@@ -63936,12 +63942,6 @@
         <td><a href="/def/politicalGeocoding/municipalityKey/20210131#16051000">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/16051000</a></td>
         <td>16051000</td>
         <td>Erfurt, Stadt</td>
-        <td></td>
-      </tr>
-      <tr id="16052000">
-        <td><a href="/def/politicalGeocoding/municipalityKey/20210131#16052000">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/16052000</a></td>
-        <td>16052000</td>
-        <td>Gera, Stadt</td>
         <td></td>
       </tr>
       <tr id="16053000">
