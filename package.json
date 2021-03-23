@@ -1,8 +1,8 @@
 {
   "name": "quasar-weahter-app",
   "version": "0.0.1",
-  "description": "A Quasar Framework app",
-  "productName": "Quasar App",
+  "description": "Get your local incidence",
+  "productName": "What's my Incidence",
   "author": "Benriez <stberiez@stud.h-da.de>",
   "private": true,
   "scripts": {
@@ -15,7 +15,8 @@
     "quasar": "^1.0.0"
   },
   "devDependencies": {
-    "@quasar/app": "^2.0.0"
+    "@quasar/app": "^2.0.0",
+    "workbox-webpack-plugin": "^5.1.4"
   },
   "browserslist": [
     "last 10 Chrome versions",
