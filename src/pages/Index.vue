@@ -146,10 +146,10 @@ export default {
     },
     getWeatherByCoords(){
       this.$q.loading.show()
+      this.closeCounter()
       this.$axios(`${this.apiURL}?lat=${this.lat}&lon=${this.lon}&appid=${this.apiKey}&units=metric`).then(response=>{
         this.weatherData = response.data
         this.get_ags()
-        this.closeCounter()
         // https://www.dcat-ap.de/def/politicalGeocoding/municipalityKey/20210131.html
         
       })
@@ -157,11 +157,11 @@ export default {
     },
     getWeatherbySearch(){
       this.$q.loading.show()
+      this.closeCounter()
       this.$axios(`${this.apiURL}?q=${this.search}&appid=${this.apiKey}&units=metric`).then(response=>{
         this.weatherData = response.data
         this.get_ags()
       })
-      this.closeCounter()
       this.$q.loading.hide()
     },
     get_ags(){
