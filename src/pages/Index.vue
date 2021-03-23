@@ -163,10 +163,14 @@ export default {
         console.log('weathermap', this.weatherData)
         if (this.weatherData.name.includes("Regierungsbezirk")){ //Direktionsbezirk
           this.weatherData.name = this.weatherData.name.slice(17)
-          this.get_ags()
-        } else {
-          this.get_ags()
+        } else if (this.weatherData.name == 'Wurzburg') {
+          this.weatherData.name = 'Würzburg'
+        } else if (this.weatherData.name == 'Munich') {
+          this.weatherData.name = 'München'
+        } else if (this.weatherData.name == 'Nuremberg') {
+          this.weatherData.name = 'Nürnberg'
         }
+        this.get_ags()
       })
       this.$q.loading.hide()
     },
