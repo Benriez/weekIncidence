@@ -27,8 +27,6 @@
       </q-input>
     </div>
 
-    
-
     <template v-if="weatherData">
       <div class="col result text-white text-center textData">
         <div class="text-h4 weatherData-name">
@@ -73,6 +71,7 @@
     </template>
 
     <template v-else>
+      <a href='https://www.symptoma.ro/'>Căutare de informații medicale</a>
       <div class="col column text-center text-white">
         <div class="col text-h2 text-weight-thin intro">
           What's my <br> Incidence
@@ -84,11 +83,10 @@
             <q-icon left size="3em" name="my_location" />
             <div>Find my location</div>
           </q-btn>
-      </div>
+      </div> 
     </template>
 
     <!-- data from && data provided by -->
-
     <div class="wrapper">
       <div class="box">
         <div></div>
@@ -211,6 +209,7 @@ export default {
   body
     margin: 0
     padding: 0
+    overflow: hidden
 
   .getLocationBtn
     z-index: 10
@@ -252,6 +251,14 @@ export default {
   
   .weatherData-name
     margin-bottom: 8px
+
+  .counterimg
+    position: absolute
+    top: 10px
+    left: 50%
+    transform: translateX(-50%)
+    z-index: 100
+    opacity: 0.8
   
   .box div
     position: absolute
