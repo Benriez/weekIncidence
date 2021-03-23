@@ -71,7 +71,7 @@
     </template>
 
     <template v-else>
-      <a href='https://www.symptoma.ro/'>Căutare de informații medicale</a>
+      <!-- <a href='https://www.symptoma.ro/'>Căutare de informații medicale</a> -->
       <div class="col column text-center text-white">
         <div class="col text-h2 text-weight-thin intro">
           What's my <br> Incidence
