@@ -161,7 +161,7 @@ export default {
       this.$axios(`${this.apiURL}?q=${this.search}&appid=${this.apiKey}&units=metric`).then(response=>{
         this.weatherData = response.data
         console.log('weathermap', this.weatherData)
-        if (this.weatherData.name.includes("Regierungsbezirk")){
+        if (this.weatherData.name.includes("Regierungsbezirk")){ //Direktionsbezirk
           this.weatherData.name = this.weatherData.name.slice(17)
           this.get_ags()
         } else {
