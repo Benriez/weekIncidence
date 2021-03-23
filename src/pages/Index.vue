@@ -27,7 +27,7 @@
       </q-input>
     </div>
 
-    <template v-if="weatherData">
+    <template v-if="coronaData">
       <div class="col result text-white text-center textData">
         <div class="text-h4 weatherData-name">
           {{weatherData.name}}
@@ -146,7 +146,7 @@ export default {
     },
     getWeatherByCoords(){
       this.$q.loading.show()
-      this.closeCounter()
+      // this.closeCounter()
       this.$axios(`${this.apiURL}?lat=${this.lat}&lon=${this.lon}&appid=${this.apiKey}&units=metric`).then(response=>{
         this.weatherData = response.data
         this.get_ags()
@@ -157,10 +157,16 @@ export default {
     },
     getWeatherbySearch(){
       this.$q.loading.show()
-      this.closeCounter()
+      // this.closeCounter()
       this.$axios(`${this.apiURL}?q=${this.search}&appid=${this.apiKey}&units=metric`).then(response=>{
         this.weatherData = response.data
-        this.get_ags()
+        console.log('weathermap', this.weatherData)
+        if (this.weatherData.name.includes("Regierungsbezirk")){
+          this.weatherData.name = this.weatherData.name.slice(17)
+          this.get_ags()
+        } else {
+          this.get_ags()
+        }
       })
       this.$q.loading.hide()
     },
@@ -172,6 +178,7 @@ export default {
           ags = ags + response.data.charAt(response.data.indexOf(ort)-26 + index)    
         }
         this.gemeindezahl = ags
+        console.log('gemeindezahl', this.gemeindezahl)
         this.getCoronaStats()
       })
 
@@ -182,7 +189,7 @@ export default {
       this.$axios(`https://api.corona-zahlen.org/districts/${this.gemeindezahl}`).then(response=>{
         this.coronaData = response.data
         console.log('c-data', this.coronaData)
-      });
+      })
     
     },
     closeInfo(){
