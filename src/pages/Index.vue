@@ -201,6 +201,8 @@ export default {
           this.weatherData.name = 'Nürnberg'
         } else if (this.weatherData.name == 'Hanover') {
           this.weatherData.name = 'Hannover'
+        } else if (this.weatherData.name == 'Hamelin') {
+          this.weatherData.name = 'Hameln'
         } else if (this.weatherData.name.includes("Direktionsbezirk")) {
           this.weatherData.name = this.weatherData.name.slice(17)
         }

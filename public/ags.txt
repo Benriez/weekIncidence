@@ -236,12 +236,6 @@
         <td>Hedwigenkoog</td>
         <td></td>
       </tr>
-      <tr id="01051044">
-        <td><a href="/def/politicalGeocoding/municipalityKey/20210131#01051044">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/01051044</a></td>
-        <td>01051044</td>
-        <td>Heide, Stadt</td>
-        <td></td>
-      </tr>
       <tr id="01051045">
         <td><a href="/def/politicalGeocoding/municipalityKey/20210131#01051045">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/01051045</a></td>
         <td>01051045</td>
@@ -1848,6 +1842,12 @@
         <td><a href="/def/politicalGeocoding/municipalityKey/20210131#01054070">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/01054070</a></td>
         <td>01054070</td>
         <td>Koldenbüttel</td>
+        <td></td>
+      </tr>
+      <tr id="01051044">
+        <td><a href="/def/politicalGeocoding/municipalityKey/20210131#01051044">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/01051044</a></td>
+        <td>01051044</td>
+        <td>Heide, Stadt</td>
         <td></td>
       </tr>
       <tr id="01054071">
@@ -8336,6 +8336,12 @@
         <td>Edemissen</td>
         <td></td>
       </tr>
+      <tr id="03252006">
+        <td><a href="/def/politicalGeocoding/municipalityKey/20210131#03252006">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/03252006</a></td>
+        <td>03252006</td>
+        <td>Hameln, Stadt</td>
+        <td></td>
+      </tr>
       <tr id="03157002">
         <td><a href="/def/politicalGeocoding/municipalityKey/20210131#03157002">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/03157002</a></td>
         <td>03157002</td>
@@ -9254,12 +9260,6 @@
         <td>Emmerthal</td>
         <td></td>
       </tr>
-      <tr id="03252006">
-        <td><a href="/def/politicalGeocoding/municipalityKey/20210131#03252006">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/03252006</a></td>
-        <td>03252006</td>
-        <td>Hameln, Stadt</td>
-        <td></td>
-      </tr>
       <tr id="03252007">
         <td><a href="/def/politicalGeocoding/municipalityKey/20210131#03252007">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/03252007</a></td>
         <td>03252007</td>
@@ -9786,6 +9786,12 @@
         <td><a href="/def/politicalGeocoding/municipalityKey/20210131#03256027">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/03256027</a></td>
         <td>03256027</td>
         <td>Rohrsen</td>
+        <td></td>
+      </tr>
+      <tr id="12061448">
+        <td><a href="/def/politicalGeocoding/municipalityKey/20210131#12061448">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/12061448</a></td>
+        <td>12061448</td>
+        <td>Schwerin</td>
         <td></td>
       </tr>
       <tr id="03256028">
@@ -13598,6 +13604,12 @@
         <td>Industriehäfen</td>
         <td>Stadt-/Ortsteil bzw. Stadtbezirk</td>
       </tr>
+      <tr id="04012000">
+        <td><a href="/def/politicalGeocoding/municipalityKey/20210131#04012000">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/04012000</a></td>
+        <td>04012000</td>
+        <td>Bremerhaven, Stadt</td>
+        <td></td>
+      </tr>
       <tr id="04011123">
         <td><a href="/def/politicalGeocoding/municipalityKey/20210131#04011123">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/04011123</a></td>
         <td>04011123</td>
@@ -14113,12 +14125,6 @@
         <td>04011535</td>
         <td>Rekum</td>
         <td>Stadt-/Ortsteil bzw. Stadtbezirk</td>
-      </tr>
-      <tr id="04012000">
-        <td><a href="/def/politicalGeocoding/municipalityKey/20210131#04012000">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/04012000</a></td>
-        <td>04012000</td>
-        <td>Bremerhaven, Stadt</td>
-        <td></td>
       </tr>
       <tr id="05111000">
         <td><a href="/def/politicalGeocoding/municipalityKey/20210131#05111000">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/05111000</a></td>
@@ -14934,6 +14940,12 @@
         <td><a href="/def/politicalGeocoding/municipalityKey/20210131#05374048">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/05374048</a></td>
         <td>05374048</td>
         <td>Wiehl, Stadt</td>
+        <td></td>
+      </tr>
+      <tr id="06431007">
+        <td><a href="/def/politicalGeocoding/municipalityKey/20210131#06431007">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/06431007</a></td>
+        <td>06431007</td>
+        <td>Fürth</td>
         <td></td>
       </tr>
       <tr id="05374052">
@@ -16548,12 +16560,6 @@
         <td><a href="/def/politicalGeocoding/municipalityKey/20210131#06431006">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/06431006</a></td>
         <td>06431006</td>
         <td>Einhausen</td>
-        <td></td>
-      </tr>
-      <tr id="06431007">
-        <td><a href="/def/politicalGeocoding/municipalityKey/20210131#06431007">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/06431007</a></td>
-        <td>06431007</td>
-        <td>Fürth</td>
         <td></td>
       </tr>
       <tr id="06431008">
@@ -34692,6 +34698,12 @@
         <td><a href="/def/politicalGeocoding/municipalityKey/20210131#08136003">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/08136003</a></td>
         <td>08136003</td>
         <td>Adelmannsfelden</td>
+        <td></td>
+      </tr>
+      <tr id="13073009">
+        <td><a href="/def/politicalGeocoding/municipalityKey/20210131#13073009">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/13073009</a></td>
+        <td>13073009</td>
+        <td>Barth, Stadt</td>
         <td></td>
       </tr>
       <tr id="08136007">
@@ -53594,12 +53606,6 @@
         <td>Schulzendorf</td>
         <td></td>
       </tr>
-      <tr id="12061448">
-        <td><a href="/def/politicalGeocoding/municipalityKey/20210131#12061448">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/12061448</a></td>
-        <td>12061448</td>
-        <td>Schwerin</td>
-        <td></td>
-      </tr>
       <tr id="12061450">
         <td><a href="/def/politicalGeocoding/municipalityKey/20210131#12061450">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/12061450</a></td>
         <td>12061450</td>
@@ -57374,12 +57380,6 @@
         <td>Bad Sülze, Stadt</td>
         <td></td>
       </tr>
-      <tr id="13073009">
-        <td><a href="/def/politicalGeocoding/municipalityKey/20210131#13073009">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/13073009</a></td>
-        <td>13073009</td>
-        <td>Barth, Stadt</td>
-        <td></td>
-      </tr>
       <tr id="13073010">
         <td><a href="/def/politicalGeocoding/municipalityKey/20210131#13073010">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/13073010</a></td>
         <td>13073010</td>
@@ -59108,6 +59108,12 @@
         <td>Stolpe an der Peene</td>
         <td></td>
       </tr>
+      <tr id="13075137">
+        <td><a href="/def/politicalGeocoding/municipalityKey/20210131#13075137">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/13075137</a></td>
+        <td>13075137</td>
+        <td>Usedom, Stadt</td>
+        <td></td>
+      </tr>
       <tr id="13075129">
         <td><a href="/def/politicalGeocoding/municipalityKey/20210131#13075129">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/13075129</a></td>
         <td>13075129</td>
@@ -59148,12 +59154,6 @@
         <td><a href="/def/politicalGeocoding/municipalityKey/20210131#13075136">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/13075136</a></td>
         <td>13075136</td>
         <td>Ueckermünde, Seebad , Stadt</td>
-        <td></td>
-      </tr>
-      <tr id="13075137">
-        <td><a href="/def/politicalGeocoding/municipalityKey/20210131#13075137">http://dcat-ap.de/def/politicalGeocoding/municipalityKey/13075137</a></td>
-        <td>13075137</td>
-        <td>Usedom, Stadt</td>
         <td></td>
       </tr>
       <tr id="13075138">
