@@ -1,5 +1,12 @@
 <template>
   <q-page class="flex column topSearch" :class="bgClass">
+    <q-banner inline-actions class="text-white bg-red turn-on-location" @click="TurnOnLocation">
+      Please enable Geolocation on your device first.
+      <template v-slot:action>
+        <q-btn flat color="white" label="Got it" />
+      </template>
+    </q-banner>
+
     <div class="col q-pt-lg q-px-md">
       <q-input
         @keyup.enter="getWeatherbySearch"
@@ -138,11 +145,34 @@ export default {
   methods: {
     getLocation(){
       this.$q.loading.show()
-      navigator.geolocation.getCurrentPosition(position => {
-        this.lat= position.coords.latitude
-        this.lon= position.coords.longitude
-        this.getWeatherByCoords()
-      })
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(this.showPosition, this.showError)
+      } else {
+        alert("Geolocation is not supported by this browser.")
+      }
+    },
+    showPosition(position){
+      this.lat= position.coords.latitude
+      this.lon= position.coords.longitude
+      this.getWeatherByCoords()
+    },
+    showError(error){
+      this.$q.loading.hide()
+      switch(error.code) {
+        case error.PERMISSION_DENIED:
+          var x = document.getElementsByClassName("turn-on-location")[0]
+          x.style.display = "flex"
+          break;
+        case error.POSITION_UNAVAILABLE:
+          alert("Location information is unavailable.")
+          break;
+        case error.TIMEOUT:
+          alert("The request to get user location timed out.")
+          break;
+        case error.UNKNOWN_ERROR:
+          alert("An unknown error occurred.")
+          break;
+      }
     },
     getWeatherByCoords(){
       this.$q.loading.show()
@@ -199,6 +229,10 @@ export default {
         console.log('c-data', this.coronaData)
       })
     
+    },
+    TurnOnLocation(){
+      var x = document.getElementsByClassName("turn-on-location")[0]
+      x.style.display = "none"
     },
     closeInfo(){
       var x = document.getElementById("Info");
@@ -262,6 +296,9 @@ export default {
   
   .textData
     margin-top: 0rem
+
+  .turn-on-location
+    display: none
   
   .meta-data
     display: contents
