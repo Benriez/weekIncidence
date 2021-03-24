@@ -81,7 +81,7 @@
       <!-- <a href='https://www.symptoma.ro/'>Căutare de informații medicale</a> -->
       <div class="col column text-center text-white">
         <div class="col text-h2 text-weight-thin intro">
-          Was ist meine <br> Inzidenz?
+          Wie hoch ist meine <br> Inzidenz?
         </div>
           <q-btn
             @click="getLocation"
