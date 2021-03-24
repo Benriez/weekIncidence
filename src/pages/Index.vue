@@ -1,7 +1,7 @@
 <template>
   <q-page class="flex column topSearch" :class="bgClass">
     <q-banner inline-actions class="text-white bg-red turn-on-location" @click="TurnOnLocation">
-      Please enable Geolocation on your device first.
+      Bitte aktivieren Sie zuerst die Standortfreigabe auf Ihrem Gerät.
       <template v-slot:action>
         <q-btn flat color="white" label="Got it" />
       </template>
@@ -12,7 +12,7 @@
         @keyup.enter="getWeatherbySearch"
         bottom-slots
         v-model="search"
-        placeholder="Search"
+        placeholder="Suche"
         dark
         borderless=""
         >
@@ -81,17 +81,23 @@
       <!-- <a href='https://www.symptoma.ro/'>Căutare de informații medicale</a> -->
       <div class="col column text-center text-white">
         <div class="col text-h2 text-weight-thin intro">
-          What's my <br> Incidence
+          Was ist meine <br> Inzidenz?
         </div>
           <q-btn
             @click="getLocation"
             class="col getLocationBtn"
             flat>
             <q-icon left size="3em" name="my_location" />
-            <div>Find my location</div>
+            <div>Finde meinen Ort</div>
           </q-btn>
       </div> 
     </template>
+
+   <v-color-picker
+      dot-size="25"
+      hide-inputs
+      swatches-max-height="100"
+    ></v-color-picker>
 
     <!-- data from && data provided by -->
     <div class="wrapper">

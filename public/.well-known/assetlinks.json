@@ -1,0 +1,10 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "xyz.appmaker.wxevim",
+      "sha256_cert_fingerprints": ["AE:3D:52:4E:22:01:1F:0B:01:28:44:A8:C9:37:FB:A4:BD:92:40:B2:0C:AA:7C:FC:D5:0B:83:E4:DE:7C:9B:55", "38:8E:EC:06:E8:F2:B5:85:B3:A7:BC:67:62:8A:7A:B1:45:E4:FB:F4:25:1D:CC:4F:B9:11:AA:2A:49:31:05:D8"]
+    }
+  }
+]
