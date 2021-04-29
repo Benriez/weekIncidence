@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Inzidenz Deutschland</string>
+    <string name="title_activity_main">Inzidenz Deutschland</string>
+    <string name="package_name">de.studioschmudio.inzidenzdeutschland</string>
+    <string name="custom_url_scheme">de.studioschmudio.inzidenzdeutschland</string>
+</resources>
