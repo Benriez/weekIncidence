@@ -87,9 +87,14 @@
         <div class="text-h7 text-weight-light">
           Letzten 3 Tage
         </div>
-        <template>
+        <template v-if="threedayIncidence">
           <div class="text-h3 text-weight-light q-my-sm relative-position" style="color: red">
-            <span>{{ Math.round(coronaData.data[gemeindezahl].weekIncidence)}}</span> 
+            <span>{{ Math.round(threedayIncidence)}}</span> 
+          </div>
+        </template>
+        <template v-else>
+          <div class="text-h3 text-weight-light q-my-sm relative-position" style="color: red">
+            <q-icon name="help_outline" />
           </div>
         </template>
 
@@ -323,7 +328,7 @@ export default {
       // check if city already exists in db
         db.collection('3day'+this.weatherData.name).get().then(checkdb => {
           for (let index = 0; index < checkdb.length; index++) {
-            
+            this.maxItems=checkdb.length
             if (checkdb[index].timestamp == today ){
               console.log("item already exists")
               this.dbunique = false
@@ -349,6 +354,7 @@ export default {
               incidence: Math.round(this.coronaData.data[this.gemeindezahl].weekIncidence),
               timestamp: today
             })
+            this.maxItems ++
           }
 
           this.calcLastThreeDays()
@@ -359,10 +365,17 @@ export default {
       
     },
     calcLastThreeDays(){
+      db.collection('3day'+this.weatherData.name).get().then(checkdb => {
+        this.firstVal = checkdb[this.maxItems - 3].incidence
+        this.secondVal = checkdb[this.maxItems - 2].incidence
+        this.thirdVal = checkdb[this.maxItems-1].incidence
 
-      
-      
 
+        this.threedayIncidence = (this.firstVal + this.secondVal + this.thirdVal) /3
+        
+
+        console.log(this.thirdVal)
+      }).catch(err => alert(err))
     },
     TurnOnLocation(){
       var x = document.getElementsByClassName("turn-on-location")[0]
