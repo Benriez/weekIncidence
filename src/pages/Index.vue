@@ -42,6 +42,7 @@
                     <q-toggle 
                       @input="update_permission"
                       id="#dbpermission"
+                      class="dbperm"
                       v-model="save_localbase" 
                       label="Datenspeichern" />
                     <q-item-section style="margin-top: 1rem;">Impressum</q-item-section>
@@ -177,13 +178,14 @@ export default {
   },
   methods: {
     initdb(){
+      db.collection('permissions').get().then(resp =>{
 
-
-      db.collection('permissions').get().then(document =>{
-        console.log(document.length > 0)
-
-        if (document.length > 0) {
+        if (resp.length > 0) {
           console.log("db already initialized")
+          db.collection('permissions').doc({ id: 1 }).get().then(getPermissionValue => {
+            this.save_localbase = getPermissionValue.permission           
+          })
+
         } else {
           db.collection('permissions').set([
             {
@@ -327,10 +329,22 @@ export default {
       x.style.display = "none"
     },
     update_permission(){
-      var item = document.getElementById("dbpermission");
-
-      // If the checkbox is checked, display the output text
-      console.log(item)
+      console.log("triggered")
+      if (this.save_localbase == true){
+        db.collection('permissions').set([
+          {
+            id: 1,
+            permission: true,
+          }
+        ])
+      } else {
+        db.collection('permissions').set([
+          {
+            id: 1,
+            permission: true,
+          }
+        ])
+      }
 
     }
 
