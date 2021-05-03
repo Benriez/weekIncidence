@@ -375,7 +375,7 @@ export default {
         
 
         console.log(this.thirdVal)
-      }).catch(err => alert(err))
+      }).catch(err => console.log(err))
     },
     TurnOnLocation(){
       var x = document.getElementsByClassName("turn-on-location")[0]
