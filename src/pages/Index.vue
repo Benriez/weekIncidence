@@ -83,6 +83,19 @@
             <span>{{ Math.round(coronaData.data[gemeindezahl].weekIncidence)}}</span> 
           </div>
         </template>
+
+        <div class="text-h7 text-weight-light">
+          Letzten 3 Tage
+        </div>
+        <template>
+          <div class="text-h3 text-weight-light q-my-sm relative-position" style="color: red">
+            <span>{{ Math.round(coronaData.data[gemeindezahl].weekIncidence)}}</span> 
+          </div>
+        </template>
+
+
+
+
       </div>
       <div class="meta-data text-center">
         <span>Source: {{ coronaData.meta.source }}</span>
@@ -90,7 +103,7 @@
         <span class="meta-data-div">Data provided by: {{ coronaData.meta.contact.split("(")[0]  }}</span>
         <span class="donation">
           <img class="buymecoffee-img" src="buymeacoffee.svg" height="23px" />
-          <a class="buymecoffee"  href="https://www.paypal.com/donate?hosted_button_id=VUDEMUZAVN3Q2"> Buy me a coffee</a>
+          <a class="buymecoffee"  href="https://www.buymeacoffee.com/StudioSchmudio"> Buy us a coffee</a>
         </span> 
         
       </div>
@@ -156,8 +169,13 @@ export default {
       coronaData: null,
       weekIncidence: '',
       gemeindezahl: null,
+      threedayIncidence: null,
+      maxItems: null,
+      firstVal: null,
+      secondVal: null,
+      thirdVal: null,
       dbunique: false,
-      dbindex: 0,
+      dbindex: null,
       lat: null,
       lon: null,
       save_localbase: false,
@@ -197,25 +215,6 @@ export default {
           ])
         }
       })
-
-
-      // db.collection('permissions').add({
-      //   id: 1,
-      //   permission: false
-        
-      // })
-
-
-
-      // if (checkdb){
-      //   console.log("check db exists already")
-      // } else {
-      //   db.collection('permissions').add({
-      //     permission: false,
-      //   })
-      // }
-      // this.save_localbase = false
-      // console.log(this.save_localbase)
     },
     checkPermission(){
 
@@ -324,6 +323,7 @@ export default {
       // check if city already exists in db
         db.collection('3day'+this.weatherData.name).get().then(checkdb => {
           for (let index = 0; index < checkdb.length; index++) {
+            
             if (checkdb[index].timestamp == today ){
               console.log("item already exists")
               this.dbunique = false
@@ -339,8 +339,10 @@ export default {
             this.dbindex = 0
           }
 
+
           console.log(this.dbunique == true)
           if (this.dbunique == true){
+
             db.collection('3day'+this.weatherData.name).add({
               id: this.dbindex + 1,
               name: this.weatherData.name,
@@ -349,10 +351,18 @@ export default {
             })
           }
 
+          this.calcLastThreeDays()
+
 
         })
       }
       
+    },
+    calcLastThreeDays(){
+
+      
+      
+
     },
     TurnOnLocation(){
       var x = document.getElementsByClassName("turn-on-location")[0]
@@ -443,7 +453,7 @@ export default {
     z-index: -1
   
   .textData
-    margin-top: 0rem
+    margin-top: -1rem
 
   .turn-on-location
     display: none
@@ -457,11 +467,11 @@ export default {
   
   .meta-data
     display: contents
-    font-size: 11px
+    font-size: 10px
     color: #cfcfcf
   
   .meta-data-div
-    padding-bottom: 3rem
+    padding-bottom: 2rem
   
   .weatherData-name
     margin-bottom: 8px
