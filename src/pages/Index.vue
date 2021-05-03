@@ -339,13 +339,13 @@ export default {
             }
           }
           
+          
           if(checkdb.length == 0){
             this.dbunique = true
             this.dbindex = 0
           }
 
 
-          console.log(this.dbunique == true)
           if (this.dbunique == true){
 
             db.collection('3day'+this.weatherData.name).add({
