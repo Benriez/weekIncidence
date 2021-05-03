@@ -310,11 +310,28 @@ export default {
       })
     
     },localbase(){
-      db.collection('3day_incidence').add({
-        id: 1,
-        name: this.weatherData.name,
-        incidence: Math.round(this.coronaData.data[this.gemeindezahl].weekIncidence)
-      })
+      
+      if (this.save_localbase == true){
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+
+        today = mm + '/' + dd + '/' + yyyy;
+
+      // check if city already exists in db
+        db.collection('3day'+this.weatherData.name).get().then(checkdb => {
+          console.log(checkdb)
+        })
+        
+        db.collection('3day'+this.weatherData.name).add({
+          id: 1,
+          name: this.weatherData.name,
+          incidence: Math.round(this.coronaData.data[this.gemeindezahl].weekIncidence),
+          timestamp: today
+        })
+      }
+      
     },
     TurnOnLocation(){
       var x = document.getElementsByClassName("turn-on-location")[0]
