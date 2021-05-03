@@ -156,6 +156,8 @@ export default {
       coronaData: null,
       weekIncidence: '',
       gemeindezahl: null,
+      dbunique: false,
+      dbindex: 0,
       lat: null,
       lon: null,
       save_localbase: false,
@@ -321,14 +323,33 @@ export default {
 
       // check if city already exists in db
         db.collection('3day'+this.weatherData.name).get().then(checkdb => {
-          console.log(checkdb)
-        })
-        
-        db.collection('3day'+this.weatherData.name).add({
-          id: 1,
-          name: this.weatherData.name,
-          incidence: Math.round(this.coronaData.data[this.gemeindezahl].weekIncidence),
-          timestamp: today
+          for (let index = 0; index < checkdb.length; index++) {
+            if (checkdb[index].timestamp == today ){
+              console.log("item already exists")
+              this.dbunique = false
+              break
+            } else {
+              this.dbunique = true
+              this.dbindex = index
+            }
+          }
+          
+          if(checkdb.length == 0){
+            this.dbunique = true
+            this.dbindex = 0
+          }
+
+          console.log(this.dbunique == true)
+          if (this.dbunique == true){
+            db.collection('3day'+this.weatherData.name).add({
+              id: this.dbindex + 1,
+              name: this.weatherData.name,
+              incidence: Math.round(this.coronaData.data[this.gemeindezahl].weekIncidence),
+              timestamp: today
+            })
+          }
+
+
         })
       }
       
