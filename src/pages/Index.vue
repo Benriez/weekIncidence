@@ -31,7 +31,6 @@
             flat
             icon="search" />
           <q-btn
-            @click="getWeatherbySearch"
             round
             dense
             flat
@@ -40,7 +39,11 @@
                 <div class="row no-wrap q-pa-md side-menu" style="text-align: end;">
                   <div class="column">
                     <div class="text-h6 q-mb-md">Einstellungen</div>
-                    <q-toggle v-model="mobileData" label="Datenspeichern" />
+                    <q-toggle 
+                      @input="update_permission"
+                      id="#dbpermission"
+                      v-model="save_localbase" 
+                      label="Datenspeichern" />
                     <q-item-section style="margin-top: 1rem;">Impressum</q-item-section>
                     <q-item-section>Datenschutz</q-item-section>
 
@@ -154,8 +157,7 @@ export default {
       gemeindezahl: null,
       lat: null,
       lon: null,
-      mobileData: true,
-      bluetooth: false,
+      save_localbase: false,
       apiURL:'https://api.openweathermap.org/data/2.5/weather',
       apiCoronaURL: 'https://api.corona-zahlen.org/districts/',
       apiKey: '56bc2a1374eb7daa0e9aa172391c3899'
@@ -174,6 +176,46 @@ export default {
     }
   },
   methods: {
+    initdb(){
+
+
+      db.collection('permissions').get().then(document =>{
+        console.log(document.length > 0)
+
+        if (document.length > 0) {
+          console.log("db already initialized")
+        } else {
+          db.collection('permissions').set([
+            {
+              id: 1,
+              permission: false,
+            }
+          ])
+        }
+      })
+
+
+      // db.collection('permissions').add({
+      //   id: 1,
+      //   permission: false
+        
+      // })
+
+
+
+      // if (checkdb){
+      //   console.log("check db exists already")
+      // } else {
+      //   db.collection('permissions').add({
+      //     permission: false,
+      //   })
+      // }
+      // this.save_localbase = false
+      // console.log(this.save_localbase)
+    },
+    checkPermission(){
+
+    },
     getLocation(){
       this.$q.loading.show()
       if (navigator.geolocation) {
@@ -283,7 +325,19 @@ export default {
     closeCounter(){
       var x = document.getElementsByClassName("counterimg")[0]
       x.style.display = "none"
+    },
+    update_permission(){
+      var item = document.getElementById("dbpermission");
+
+      // If the checkbox is checked, display the output text
+      console.log(item)
+
     }
+
+  },
+  created () {
+    this.initdb()
+    this.checkPermission()
   }
 }
 </script>
