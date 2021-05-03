@@ -30,7 +30,26 @@
             dense
             flat
             icon="search" />
+          <q-btn
+            @click="getWeatherbySearch"
+            round
+            dense
+            flat
+            icon="more_vert" />
+            <q-menu>
+                <div class="row no-wrap q-pa-md side-menu" style="text-align: end;">
+                  <div class="column">
+                    <div class="text-h6 q-mb-md">Einstellungen</div>
+                    <q-toggle v-model="mobileData" label="Datenspeichern" />
+                    <q-item-section style="margin-top: 1rem;">Impressum</q-item-section>
+                    <q-item-section>Datenschutz</q-item-section>
+
+                  </div>
+                </div>
+              </q-menu>
         </template>
+
+
       </q-input>
     </div>
 
@@ -80,7 +99,7 @@
     <template v-else>
       <!-- <a href='https://www.symptoma.ro/'>Căutare de informații medicale</a> -->
       <div class="col column text-center text-white">
-        <div class="col text-h2 text-weight-thin intro">
+        <div class="col text-h3 text-weight-thin intro">
           Wie hoch ist meine <br> Inzidenz?
         </div>
           <q-btn
@@ -135,6 +154,8 @@ export default {
       gemeindezahl: null,
       lat: null,
       lon: null,
+      mobileData: true,
+      bluetooth: false,
       apiURL:'https://api.openweathermap.org/data/2.5/weather',
       apiCoronaURL: 'https://api.corona-zahlen.org/districts/',
       apiKey: '56bc2a1374eb7daa0e9aa172391c3899'
@@ -205,6 +226,8 @@ export default {
           this.weatherData.name = this.weatherData.name.slice(17)
         } else if (this.weatherData.name == 'Wurzburg') {
           this.weatherData.name = 'Würzburg'
+        } else if (this.weatherData.name == 'Cologne') {
+          this.weatherData.name = 'Köln'
         } else if (this.weatherData.name == 'Munich') {
           this.weatherData.name = 'München'
         } else if (this.weatherData.name == 'Nuremberg') {
@@ -238,9 +261,16 @@ export default {
 
       this.$axios(`https://api.corona-zahlen.org/districts/${this.gemeindezahl}`).then(response=>{
         this.coronaData = response.data
+        this.localbase()
         console.log('c-data', this.coronaData)
       })
     
+    },localbase(){
+      db.collection('3day_incidence').add({
+        id: 1,
+        name: this.weatherData.name,
+        incidence: Math.round(this.coronaData.data[this.gemeindezahl].weekIncidence)
+      })
     },
     TurnOnLocation(){
       var x = document.getElementsByClassName("turn-on-location")[0]
@@ -311,6 +341,13 @@ export default {
 
   .turn-on-location
     display: none
+  
+  .q-menu
+    background: #0a0a0abf
+    color: #dfdfdf
+  
+  .q-toggle__inner--truthy
+    color: #a03f6c
   
   .meta-data
     display: contents
