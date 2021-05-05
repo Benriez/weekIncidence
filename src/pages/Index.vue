@@ -44,9 +44,9 @@
                       id="#dbpermission"
                       class="dbperm"
                       v-model="save_localbase" 
-                      label="Datenspeichern" />
-                    <q-item-section style="margin-top: 1rem;">Impressum</q-item-section>
-                    <q-item-section>Datenschutz</q-item-section>
+                      label="Suche speichern (beta)" />
+                    <!-- <q-item-section style="margin-top: 1rem;">Impressum</q-item-section>
+                    <q-item-section>Datenschutz</q-item-section> -->
 
                   </div>
                 </div>
@@ -89,7 +89,11 @@
         </div>
         <template v-if="threedayIncidence">
           <div class="text-h3 text-weight-light q-my-sm relative-position" style="color: red">
-            <span>{{ Math.round(threedayIncidence)}}</span> 
+            <span>
+              {{ 
+                Math.round(threedayIncidence)
+              }}
+              </span> 
           </div>
         </template>
         <template v-else>
@@ -311,7 +315,7 @@ export default {
 
       this.$axios(`https://api.corona-zahlen.org/districts/${this.gemeindezahl}`).then(response=>{
         this.coronaData = response.data
-        this.localbase()
+        this.calcLastThreeDays()
         console.log('c-data', this.coronaData)
       })
     
@@ -365,17 +369,26 @@ export default {
       
     },
     calcLastThreeDays(){
-      db.collection('3day'+this.weatherData.name).get().then(checkdb => {
-        this.firstVal = checkdb[this.maxItems - 3].incidence
-        this.secondVal = checkdb[this.maxItems - 2].incidence
-        this.thirdVal = checkdb[this.maxItems-1].incidence
+      // db.collection('3day'+this.weatherData.name).get().then(checkdb => {
+      //   this.firstVal = checkdb[this.maxItems - 3].incidence
+      //   this.secondVal = checkdb[this.maxItems - 2].incidence
+      //   this.thirdVal = checkdb[this.maxItems-1].incidence
 
+      //   this.threedayIncidence = (this.firstVal + this.secondVal + this.thirdVal) /3
+        // data["06411"].history[0].weekIncidence
 
+      //   console.log(this.thirdVal)
+      // }).catch(err => console.log(err))
+
+      this.$axios(`https://api.corona-zahlen.org/districts/${this.gemeindezahl}/history/incidence/3`).then(response=>{
+        this.firstVal = response.data.data[this.gemeindezahl].history[0].weekIncidence
+        this.secondVal = response.data.data[this.gemeindezahl].history[1].weekIncidence
+        this.thirdVal = response.data.data[this.gemeindezahl].history[2].weekIncidence
         this.threedayIncidence = (this.firstVal + this.secondVal + this.thirdVal) /3
-        
-
-        console.log(this.thirdVal)
-      }).catch(err => console.log(err))
+        // console.log(typeof(this.gemeindezahl))
+        // console.log(this.firstVal["06411"].history[1].weekIncidence)
+        console.log(response.data.data)
+      })
     },
     TurnOnLocation(){
       var x = document.getElementsByClassName("turn-on-location")[0]

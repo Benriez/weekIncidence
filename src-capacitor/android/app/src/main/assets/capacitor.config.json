@@ -1,6 +1,6 @@
 {
   "appId": "de.studioschmudio.inzidenzdeutschland",
-  "appName": "What's my Incidence",
+  "appName": "Inzidenz Deutschland",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www"

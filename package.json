@@ -1,8 +1,8 @@
 {
   "name": "quasar-weahter-app",
-  "version": "0.0.1",
-  "description": "Get your local incidence",
-  "productName": "What's my Incidence",
+  "version": "0.0.2",
+  "description": "Wie hoch ist meine Inzidenz?",
+  "productName": "Inzidenz Deutschland",
   "author": "Benriez <stberiez@stud.h-da.de>",
   "private": true,
   "scripts": {
