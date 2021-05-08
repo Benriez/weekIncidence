@@ -39,14 +39,20 @@
                 <div class="row no-wrap q-pa-md side-menu" style="text-align: end;">
                   <div class="column">
                     <div class="text-h6 q-mb-md">Einstellungen</div>
+                    <q-item clickable v-ripple style="padding-right: 0px;">
+                      <q-item 
+                        to="/datenschutz" style="padding-right: 0px;">
+                          Datenschutz
+                      </q-item>
+                    </q-item>
                     <q-toggle 
                       @input="update_permission"
                       id="#dbpermission"
                       class="dbperm"
                       v-model="save_localbase" 
                       label="Suche speichern (beta)" />
-                    <!-- <q-item-section style="margin-top: 1rem;">Impressum</q-item-section>
-                    <q-item-section>Datenschutz</q-item-section> -->
+                    <!-- <q-item-section style="margin-top: 1rem;">Impressum</q-item-section> -->
+                    
 
                   </div>
                 </div>
@@ -450,6 +456,10 @@ export default {
     margin: 0
     padding: 0
     overflow: hidden
+
+  body.desktop .q-focus-helper
+    position: inherit
+    
 
   .getLocationBtn
     z-index: 10

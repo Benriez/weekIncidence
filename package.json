@@ -6,7 +6,7 @@
   "author": "Benriez <stberiez@stud.h-da.de>",
   "private": true,
   "scripts": {
-    "test": "echo \"No test specified\" && exit 0"
+    "icons": "icongenie generate -i appicon.png --skip-trim --theme-color 4E1E3C"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
