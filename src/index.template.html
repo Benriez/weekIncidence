@@ -70,5 +70,22 @@
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous">
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script>
+      window.onload = function () {
+          const header_img = document.querySelector(".homeIcon")
+
+
+  
+          const tl_mainapp= new TimelineMax();
+
+          
+          tl_mainapp.fromTo(header_img, 0.8, {x: 10, opacity: 0}, {x: 0, ease: Power2.easeOut, opacity: 1, ease: Power2.easeOut})
+
+     
+
+  
+      }
+    </script>
   </body>
 </html>

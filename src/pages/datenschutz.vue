@@ -5,7 +5,7 @@
         <q-toolbar-title class="col q-pt-lg q-px-md">
           <q-item 
             to="/">
-              <q-icon name="home" style="font-size: 2em; color: #dfdfdf;"/>
+              <q-icon class="homeIcon" name="home" style="font-size: 1.5em; color: #dfdfdf; "/>
           </q-item>
         </q-toolbar-title>
       </q-toolbar>
