@@ -72,7 +72,7 @@
 
 <script>
 export default {
-    name: 'datenschtuz',
+    name: 'datenschutz',
     data() {
         return {
      

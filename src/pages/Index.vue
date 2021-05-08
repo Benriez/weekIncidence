@@ -38,18 +38,19 @@
             <q-menu>
                 <div class="row no-wrap q-pa-md side-menu" style="text-align: end;">
                   <div class="column">
-                    <div class="text-h6 q-mb-md">Einstellungen</div>
-                    <q-item clickable v-ripple style="padding-right: 0px;">
-                      <q-item 
-                        :to='`/datenschutz`' @click.native="$router.go()" style="padding-right: 0px;">
-                          Datenschutz
-                      </q-item>
-                    </q-item>
+                    <div class="text-h6 q-mb-md" style="margin-bottom: 1.5rem">Einstellungen</div>
+                    <q-item-section
+                      @click="gotoDatenschutz"
+                      clickable
+                      style="cursor: pointer;">
+                     Datenschutz
+                    </q-item-section>
                     <q-toggle 
                       @input="update_permission"
                       id="#dbpermission"
                       class="dbperm"
                       v-model="save_localbase" 
+                      style="margin-top: 0.25rem;"
                       label="Suche speichern (beta)" />
                     <!-- <q-item-section style="margin-top: 1rem;">Impressum</q-item-section> -->
                     
@@ -144,12 +145,6 @@
       </div> 
     </template>
 
-   <v-color-picker
-      dot-size="25"
-      hide-inputs
-      swatches-max-height="100"
-    ></v-color-picker>
-
     <!-- data from && data provided by -->
     <div class="wrapper">
       <div class="box">
@@ -232,6 +227,10 @@ export default {
       })
     },
     checkPermission(){
+
+    },
+    gotoDatenschutz(){
+      this.$router.push("/datenschutz").then(() => this.$router.go())
 
     },
     getLocation(){
@@ -421,7 +420,7 @@ export default {
         db.collection('permissions').set([
           {
             id: 1,
-            permission: true,
+            permission: false,
           }
         ])
       }
