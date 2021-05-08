@@ -41,7 +41,7 @@
                     <div class="text-h6 q-mb-md">Einstellungen</div>
                     <q-item clickable v-ripple style="padding-right: 0px;">
                       <q-item 
-                        to="/datenschutz" style="padding-right: 0px;">
+                        :to='`/datenschutz`' @click.native="$router.go()" style="padding-right: 0px;">
                           Datenschutz
                       </q-item>
                     </q-item>
