@@ -100,11 +100,11 @@ module.exports = function (/* ctx */) {
     // https://quasar.dev/quasar-cli/developing-pwa/configuring-pwa
     pwa: {
       workboxPluginMode: 'GenerateSW', // 'GenerateSW' or 'InjectManifest'
-      workboxOptions: {}, // only for GenerateSW
+      workboxOptions: {maximumFileSizeToCacheInBytes: 5000000,}, // only for GenerateSW
       manifest: {
-        name: `What's my Incidence`,
-        short_name: `WhatsmyIncidence`,
-        description: `A Quasar Framework app`,
+        name: `Inzidenz Deutschland`,
+        short_name: `Inzidenz Deutschland`,
+        description: `Studio Schmudio`,
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',
@@ -169,7 +169,7 @@ module.exports = function (/* ctx */) {
       builder: {
         // https://www.electron.build/configuration/configuration
 
-        appId: 'quasar-weahter-app'
+        appId: 'Inzidenz-Deutschland'
       },
 
       // More info: https://quasar.dev/quasar-cli/developing-electron-apps/node-integration

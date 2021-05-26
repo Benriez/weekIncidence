@@ -398,8 +398,8 @@ export default {
       //   console.log(this.thirdVal)
       // }).catch(err => console.log(err))
 
-      this.$axios(`https://api.corona-zahlen.org/districts/${this.gemeindezahl}/history/incidence/3`).then(response=>{      
-        
+      // this.$axios(`https://api.corona-zahlen.org/districts/${this.gemeindezahl}/history/incidence/3`).then(response=>{      
+      this.$axios(`https://api.corona-zahlen.org/districts/history/frozen-incidence/3`).then(response=>{  
         try {
 
           this.firstVal = response.data.data[this.gemeindezahl].history[0].weekIncidence
@@ -435,6 +435,12 @@ export default {
         // console.log(typeof(this.gemeindezahl))
         // console.log(this.firstVal["06411"].history[1].weekIncidence)
         console.log(response.data.data)
+
+        console.log(response.data.data[this.gemeindezahl].history[0].weekIncidence)
+        // this.threedayIncidence  = response.data
+
+
+
       })
     },
     TurnOnLocation(){
