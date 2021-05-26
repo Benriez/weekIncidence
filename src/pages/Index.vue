@@ -27,7 +27,7 @@
           <q-btn
             @click="getWeatherbySearch"
             round
-            style="margin-right: 10px"
+            style="margin-right: 5px"
             dense
             flat
             icon="search" />
