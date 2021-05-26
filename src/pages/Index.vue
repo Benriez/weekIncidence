@@ -27,14 +27,16 @@
           <q-btn
             @click="getWeatherbySearch"
             round
+            style="margin-right: 10px"
             dense
             flat
             icon="search" />
+
           <q-btn
             round
             dense
             flat
-            icon="more_vert" />
+            icon="more_vert" >
             <q-menu>
                 <div class="row no-wrap q-pa-md side-menu" style="text-align: end;">
                   <div class="column">
@@ -44,6 +46,12 @@
                       clickable
                       style="cursor: pointer;">
                      Datenschutz
+                    </q-item-section>
+                    <q-item-section
+                      @click="gotoImpressum"
+                      clickable
+                      style="cursor: pointer;">
+                     Impressum
                     </q-item-section>
                     <q-toggle 
                       @input="update_permission"
@@ -57,7 +65,8 @@
 
                   </div>
                 </div>
-              </q-menu>
+            </q-menu>
+          </q-btn>
         </template>
 
 
@@ -75,12 +84,12 @@
         <div class="text-h6 text-weight-light">
           7 Tage Inzidenz
         </div>
-        <template v-if="coronaData.data[gemeindezahl].weekIncidence < 50">
+        <template v-if="coronaData.data[gemeindezahl].weekIncidence < 35">
           <div class="text-h1 text-weight-light q-my-lg relative-position" style="color: green">
             <span>{{ Math.round(coronaData.data[gemeindezahl].weekIncidence)}}</span> 
           </div>
         </template>
-        <template v-else-if="coronaData.data[gemeindezahl].weekIncidence > 50 && coronaData.data[gemeindezahl].weekIncidence < 100">
+        <template v-else-if="coronaData.data[gemeindezahl].weekIncidence > 50 && coronaData.data[gemeindezahl].weekIncidence < 80">
           <div class="text-h1 text-weight-light q-my-lg relative-position" style="color: orange">
             <span>{{ Math.round(coronaData.data[gemeindezahl].weekIncidence)}}</span> 
           </div>
@@ -114,9 +123,9 @@
 
       </div>
       <div class="meta-data text-center">
-        <span>Source: {{ coronaData.meta.source }}</span>
+        <span><a class="meta-data-div meta-data" href="https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Fallzahlen.html">Source: {{ coronaData.meta.source }}</a></span>
         <span>Last Update: {{ coronaData.meta.lastUpdate.split(".")[0] }}</span>
-        <span class="meta-data-div">Data provided by: {{ coronaData.meta.contact.split("(")[0]  }}</span>
+        <span class="meta-data-div"><a class="meta-data-div meta-data" href="https://api.corona-zahlen.org/docs/"> Data provided by: {{ coronaData.meta.contact.split("(")[0]  }}</a></span>
         <span class="donation">
           <img class="buymecoffee-img" src="buymeacoffee.svg" height="23px" />
           <a class="buymecoffee"  href="https://www.buymeacoffee.com/StudioSchmudio"> Buy us a coffee</a>
@@ -233,6 +242,9 @@ export default {
       this.$router.push("/datenschutz").then(() => this.$router.go())
 
     },
+    gotoImpressum(){
+      this.$router.push("/impressum").then(() => this.$router.go())
+    },
     getLocation(){
       this.$q.loading.show()
       if (navigator.geolocation) {
@@ -270,6 +282,7 @@ export default {
       this.$axios(`${this.apiURL}?lat=${this.lat}&lon=${this.lon}&appid=${this.apiKey}&units=metric`).then(response=>{
         this.weatherData = response.data
         this.get_ags()
+        console.log("weather_data::", this.weatherData)
         // https://www.dcat-ap.de/def/politicalGeocoding/municipalityKey/20210131.html
         
       })
@@ -360,7 +373,7 @@ export default {
             db.collection('3day'+this.weatherData.name).add({
               id: this.dbindex + 1,
               name: this.weatherData.name,
-              incidence: Math.round(this.coronaData.data[this.gemeindezahl].weekIncidence),
+              incidence: Math.round(this.coronaData),
               timestamp: today
             })
             this.maxItems ++
@@ -385,10 +398,39 @@ export default {
       //   console.log(this.thirdVal)
       // }).catch(err => console.log(err))
 
-      this.$axios(`https://api.corona-zahlen.org/districts/${this.gemeindezahl}/history/incidence/3`).then(response=>{
-        this.firstVal = response.data.data[this.gemeindezahl].history[0].weekIncidence
-        this.secondVal = response.data.data[this.gemeindezahl].history[1].weekIncidence
-        this.thirdVal = response.data.data[this.gemeindezahl].history[2].weekIncidence
+      this.$axios(`https://api.corona-zahlen.org/districts/${this.gemeindezahl}/history/incidence/3`).then(response=>{      
+        
+        try {
+
+          this.firstVal = response.data.data[this.gemeindezahl].history[0].weekIncidence
+
+        } catch (err) {
+
+          // error handling
+
+        }
+        
+        
+        try {
+
+          this.secondVal = response.data.data[this.gemeindezahl].history[1].weekIncidence
+
+        } catch (err) {
+
+          // error handling
+
+        }
+        
+        try {
+
+          this.thirdVal = response.data.data[this.gemeindezahl].history[2].weekIncidence
+
+        } catch (err) {
+
+          // error handling
+
+        }
+        
         this.threedayIncidence = (this.firstVal + this.secondVal + this.thirdVal) /3
         // console.log(typeof(this.gemeindezahl))
         // console.log(this.firstVal["06411"].history[1].weekIncidence)
@@ -507,6 +549,7 @@ export default {
   
   .meta-data-div
     padding-bottom: 2rem
+    text-decoration: none
   
   .weatherData-name
     margin-bottom: 8px
