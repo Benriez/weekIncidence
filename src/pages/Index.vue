@@ -220,7 +220,7 @@ export default {
       db.collection('permissions').get().then(resp =>{
 
         if (resp.length > 0) {
-          console.log("db already initialized")
+          // console.log("db already initialized")
           db.collection('permissions').doc({ id: 1 }).get().then(getPermissionValue => {
             this.save_localbase = getPermissionValue.permission           
           })
@@ -282,7 +282,7 @@ export default {
       this.$axios(`${this.apiURL}?lat=${this.lat}&lon=${this.lon}&appid=${this.apiKey}&units=metric`).then(response=>{
         this.weatherData = response.data
         this.get_ags()
-        console.log("weather_data::", this.weatherData)
+        // console.log("weather_data::", this.weatherData)
         // https://www.dcat-ap.de/def/politicalGeocoding/municipalityKey/20210131.html
         
       })
@@ -293,7 +293,7 @@ export default {
       // this.closeCounter()
       this.$axios(`${this.apiURL}?q=${this.search}&appid=${this.apiKey}&units=metric`).then(response=>{
         this.weatherData = response.data
-        console.log('weathermap', this.weatherData)
+        // console.log('weathermap', this.weatherData)
         if (this.weatherData.name.includes("Regierungsbezirk")){ 
           this.weatherData.name = this.weatherData.name.slice(17)
         } else if (this.weatherData.name == 'Wurzburg') {
@@ -323,18 +323,18 @@ export default {
           ags = ags + response.data.charAt(response.data.indexOf(ort)-26 + index)    
         }
         this.gemeindezahl = ags
-        console.log('gemeindezahl', this.gemeindezahl)
+        // console.log('gemeindezahl', this.gemeindezahl)
         this.getCoronaStats()
       })
 
     }, 
     getCoronaStats(){
-      console.log('get c-data', this.gemeindezahl)
+      // console.log('get c-data', this.gemeindezahl)
 
       this.$axios(`https://api.corona-zahlen.org/districts/${this.gemeindezahl}`).then(response=>{
         this.coronaData = response.data
         this.calcLastThreeDays()
-        console.log('c-data', this.coronaData)
+        // console.log('c-data', this.coronaData)
       })
     
     },localbase(){
@@ -352,7 +352,7 @@ export default {
           for (let index = 0; index < checkdb.length; index++) {
             this.maxItems=checkdb.length
             if (checkdb[index].timestamp == today ){
-              console.log("item already exists")
+              // console.log("item already exists")
               this.dbunique = false
               break
             } else {
@@ -434,9 +434,9 @@ export default {
         this.threedayIncidence = (this.firstVal + this.secondVal + this.thirdVal) /3
         // console.log(typeof(this.gemeindezahl))
         // console.log(this.firstVal["06411"].history[1].weekIncidence)
-        console.log(response.data.data)
+        // console.log(response.data.data)
 
-        console.log(response.data.data[this.gemeindezahl].history[0].weekIncidence)
+        // console.log(response.data.data[this.gemeindezahl].history[0].weekIncidence)
         // this.threedayIncidence  = response.data
 
 
@@ -456,7 +456,7 @@ export default {
       x.style.display = "none"
     },
     update_permission(){
-      console.log("triggered")
+      // console.log("triggered")
       if (this.save_localbase == true){
         db.collection('permissions').set([
           {
