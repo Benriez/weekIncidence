@@ -1,11 +1,7 @@
 <template>
   <q-page class="flex column topSearch" :class="bgClass">
-    <q-banner inline-actions class="text-white bg-red turn-on-location" @click="TurnOnLocation">
-      Bitte aktivieren Sie zuerst die Standortfreigabe auf Ihrem Gerät.
-      <template v-slot:action>
-        <q-btn flat color="white" label="Got it" />
-      </template>
-    </q-banner>
+
+    <location-check />
 
     <div class="col q-pt-lg q-px-md">
       <q-input
@@ -61,14 +57,12 @@
                       style="margin-top: 0.25rem;"
                       label="Suche speichern (beta)" />
                     <!-- <q-item-section style="margin-top: 1rem;">Impressum</q-item-section> -->
-                    
-
                   </div>
                 </div>
             </q-menu>
+
           </q-btn>
         </template>
-
 
       </q-input>
     </div>
@@ -117,11 +111,9 @@
             <q-icon name="help_outline" />
           </div>
         </template>
-
-
-
-
       </div>
+
+
       <div class="meta-data text-center">
         <span><a class="meta-data-div meta-data" href="https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Fallzahlen.html">Source: {{ coronaData.meta.source }}</a></span>
         <span>Last Update: {{ coronaData.meta.lastUpdate.split(".")[0] }}</span>
@@ -132,14 +124,10 @@
         </span> 
         
       </div>
-      <!-- <div class="col text-center">
-        <img :src="`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`">
-      </div> -->
 
     </template>
 
     <template v-else>
-      <!-- <a href='https://www.symptoma.ro/'>Căutare de informații medicale</a> -->
       <div class="col column text-center text-white">
         <div class="col text-h3 text-weight-thin intro">
           Wie hoch ist meine <br> Inzidenz?
@@ -154,22 +142,7 @@
       </div> 
     </template>
 
-    <!-- data from && data provided by -->
-    <div class="wrapper">
-      <div class="box">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    </div>
-    <!-- <a href="https://www.checkdomain.de/unternehmen/garantie/ssl/popup/" onclick="window.open(this.href + '?host=' + window.location.host,'','height=600,width=560,scrollbars=yes'); return false;"><img src="https://www.checkdomain.de/assets/bundles/web/app/widget/seal/img/ssl_certificate/de/150x150.png?20210322-140953" alt="SSL-Zertifikat" /></a> -->
+    <bg-anim />
 
   </q-page>
 </template>
@@ -214,6 +187,11 @@ export default {
         }
       }
     }
+  },
+  components: {
+    'location-check': require('components/LocationCheck.vue').default,
+    'bg-anim': require('components/BgAnimation.vue').default
+
   },
   methods: {
     initdb(){
@@ -386,19 +364,7 @@ export default {
       }
       
     },
-    calcLastThreeDays(){
-      // db.collection('3day'+this.weatherData.name).get().then(checkdb => {
-      //   this.firstVal = checkdb[this.maxItems - 3].incidence
-      //   this.secondVal = checkdb[this.maxItems - 2].incidence
-      //   this.thirdVal = checkdb[this.maxItems-1].incidence
-
-      //   this.threedayIncidence = (this.firstVal + this.secondVal + this.thirdVal) /3
-        // data["06411"].history[0].weekIncidence
-
-      //   console.log(this.thirdVal)
-      // }).catch(err => console.log(err))
-
-      // this.$axios(`https://api.corona-zahlen.org/districts/${this.gemeindezahl}/history/incidence/3`).then(response=>{      
+    calcLastThreeDays(){    
       this.$axios(`https://api.corona-zahlen.org/districts/history/frozen-incidence/3`).then(response=>{  
         try {
 
@@ -443,16 +409,8 @@ export default {
 
       })
     },
-    TurnOnLocation(){
-      var x = document.getElementsByClassName("turn-on-location")[0]
-      x.style.display = "none"
-    },
     closeInfo(){
       var x = document.getElementById("Info");
-      x.style.display = "none"
-    },
-    closeCounter(){
-      var x = document.getElementsByClassName("counterimg")[0]
       x.style.display = "none"
     },
     update_permission(){
@@ -493,12 +451,6 @@ export default {
   .degree
     top: -44px
 
-  // .skyline
-  //   flex: 0 0 150px
-  //   background: url(../assets/skyline.png)
-  //   background-size: contain
-  //   background-position: center bottom
-
   body
     margin: 0
     padding: 0
@@ -527,13 +479,6 @@ export default {
   
   .donation
     margin-bottom: 8px
-
-  .wrapper
-    position: absolute
-    width: 100%
-    height: 100%
-    overflow: hidden
-    z-index: -1
   
   .textData
     margin-top: -1rem
@@ -560,78 +505,5 @@ export default {
   .weatherData-name
     margin-bottom: 8px
 
-  .counterimg
-    position: absolute
-    top: 50%
-    left: 50%
-    transform: translate(-50%, -7.5rem)
-    z-index: 100
-    opacity: 0.8
-    display: block
-  
-  .box div
-    position: absolute
-    width: 60px
-    height: 60px
-    background-color: transparent
-    border: 4px solid #efefef
-
-  .box div:nth-child(1)
-    top: 12%
-    left: 42%
-    animation: animate 10s linear infinite
-  
-  .box div:nth-child(2)
-    top: 90%
-    left: 50%
-    animation: animate 7s linear infinite
-  
-  .box div:nth-child(3)
-    top: 17%
-    left: 6%
-    animation: animate 9s linear infinite
-  
-  .box div:nth-child(4)
-    top: 20%
-    left: 60%
-    animation: animate 10s linear infinite
-  
-  .box div:nth-child(5)
-    top: 67%
-    left: 10%
-    animation: animate 6s linear infinite
-  
-  .box div:nth-child(6)
-    top: 80%
-    left: 70%
-    animation: animate 12s linear infinite
-  
-  .box div:nth-child(7)
-    top: 60%
-    left: 80%
-    animation: animate 15s linear infinite
-  
-  .box div:nth-child(8)
-    top: 32%
-    left: 25%
-    animation: animate 16s linear infinite
-
-  .box div:nth-child(9)
-    top: 90%
-    left: 25%
-    animation: animate 9s linear infinite
-  
-  .box div:nth-child(10)
-    top: 20%
-    left: 80%
-    animation: animate 5s linear infinite
-
-  @keyframes animate
-    0%
-      transform: scale(0) translateY(0) rotate(0)
-      opacity: 1
-    100%
-      transform: scale(1.3) translateY(-90px) rotate(360deg)
-      opacity: 0
 
 </style>
